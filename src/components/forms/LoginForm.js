@@ -8,7 +8,6 @@ class LoginForm extends React.Component {
     
     constructor(props) {
         super(props);
-        props.submit= PropTypes.func.isRequired;
       }
 
     state = {
@@ -44,7 +43,7 @@ class LoginForm extends React.Component {
        
         return (
             <Form onSubmit={this.onSubmit}>
-                <Form.Field>
+                <Form.Field error={!!errors.email}>
                     <label htmlFor="email">Email</label>
                     <input 
                         type="email" 
@@ -56,7 +55,7 @@ class LoginForm extends React.Component {
                         />
                         {errors.email && <InLineError text={errors.email} />}
                 </Form.Field>
-                <Form.Field>
+                <Form.Field error={!!errors.password}>
                     <label htmlFor="password">Password</label>
                     <input 
                         type="password" 
@@ -74,9 +73,6 @@ class LoginForm extends React.Component {
     }
 }
 
- /*LoginForm.prototype = {
-      submit: PropTypes.func.isRequired
- };*/
 
 export default LoginForm;
 
